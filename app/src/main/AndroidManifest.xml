@@ -13,6 +13,12 @@
         android:theme="@style/Theme.DailyMoodJournalTrackerApp"
         tools:targetApi="31">
         <activity
+            android:name=".MoodDisplay"
+            android:exported="false" />
+        <activity
+            android:name=".MoodView"
+            android:exported="false" />
+        <activity
             android:name=".MoodInput"
             android:exported="false" />
         <activity
