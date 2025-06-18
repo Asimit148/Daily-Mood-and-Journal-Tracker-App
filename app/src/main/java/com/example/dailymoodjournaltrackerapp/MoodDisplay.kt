@@ -5,10 +5,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-// UI components matching the new XML IDs
 private lateinit var buttonShowAll: Button
 private lateinit var buttonShowSleepHours: Button
 private lateinit var buttonBackToHome: Button
@@ -20,46 +17,47 @@ class MoodDisplay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mood_display)
-        // Link Kotlin variables to views using updated XML IDs
+
+        // Link UI components to their XML counterparts
         buttonShowAll = findViewById(R.id.buttonShowAll)
         buttonShowSleepHours = findViewById(R.id.buttonShowSleepHours)
         buttonBackToHome = findViewById(R.id.buttonBackToHome)
         displayAllEmotions = findViewById(R.id.displayAllEmotions)
         displayEmotions = findViewById(R.id.displayEmotions)
 
-        // Retrieve data passed from ActivityInput using updated key names
+        // Retrieve data passed from MoodInput
         val moodList = intent.getStringArrayListExtra("moodList")
         val typeList = intent.getStringArrayListExtra("typeList")
         val sleepList = intent.getIntegerArrayListExtra("sleepList")
         val journalList = intent.getStringArrayListExtra("journalList")
 
-        // Show all items from the packing list
+        // Show all mood records
         buttonShowAll.setOnClickListener {
             if (moodList != null && typeList != null && sleepList != null && journalList != null) {
                 val fullList = moodList.indices.joinToString("\n") {
-                    "${moodList[it]} (${typeList[it]}) - ${sleepList[it]}: ${journalList[it]}"
+                    "Mood: ${moodList[it]} (${typeList[it]})\nSleep: ${sleepList[it]} hours\nJournal: ${journalList[it]}\n"
                 }
-                displayEmotions.text = fullList.ifBlank { "No hours slept." }
+                displayEmotions.text = fullList.ifBlank { "No mood entries to display." }
             } else {
-                displayEmotions.text = "No hours slept."
+                displayEmotions.text = "No mood entries to display."
             }
         }
 
-        // Show only items with quantity 2 or more
+        // Filter and show moods with less than 6 hours of sleep
         buttonShowSleepHours.setOnClickListener {
-            if (moodList != null && sleepList != null) {
+            if (moodList != null && sleepList != null && typeList != null) {
                 val filtered = moodList.indices
                     .filter { sleepList[it] < 6 }
                     .joinToString("\n") {
-                        "${moodList[it]} (Quantity: ${sleepList[it]})"
+                        "Mood: ${moodList[it]} (${typeList[it]}) - Sleep: ${sleepList[it]} hours"
                     }
-                displayAllEmotions.text = filtered.ifBlank { "No sleep with hours < 6 added." }
+                displayAllEmotions.text = filtered.ifBlank { "No entries with sleep < 6 hours found." }
             } else {
-                displayAllEmotions.text = "No sleep with hours < 6 added."
+                displayAllEmotions.text = "No entries with sleep < 6 hours found."
             }
         }
 
-        // Return to the input screen
+        // Go back to input screen
         buttonBackToHome.setOnClickListener {
             finish()
         }
