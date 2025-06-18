@@ -49,7 +49,7 @@ class MoodDisplay : AppCompatActivity() {
         buttonShowSleepHours.setOnClickListener {
             if (moodList != null && sleepList != null) {
                 val filtered = moodList.indices
-                    .filter { sleepList[it] >= 30 }
+                    .filter { sleepList[it] < 6 }
                     .joinToString("\n") {
                         "${moodList[it]} (Quantity: ${sleepList[it]})"
                     }
