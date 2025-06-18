@@ -20,7 +20,7 @@ class MoodDisplay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mood_display)
-        // Link Kotlin variables to views using updated XML IDs
+        V// Link Kotlin variables to views using updated XML IDs
         buttonShowAll = findViewById(R.id.buttonShowAll)
         buttonShowFiltered = findViewById(R.id.buttonShowFiltered)
         buttonBackToHome = findViewById(R.id.buttonBackToHome)

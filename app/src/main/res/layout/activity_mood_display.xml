@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/buttondisplayAllEmotions"
+        android:id="@+id/displayAllEmotions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="All Emotions will appear here"
