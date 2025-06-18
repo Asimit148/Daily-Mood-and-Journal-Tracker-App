@@ -27,7 +27,6 @@ The app was built to assist users in:
   - A **“Exit” Button** to close the app.
 - **Screenshot:**
   ![Welcome Screen]![image](https://github.com/user-attachments/assets/9ef87e65-feb7-4aba-b8a1-5e5ffef52ec2)
-![image](https://github.com/user-attachments/assets/9ef87e65-feb7-4aba-b8a1-5e5ffef52ec2)
 
 
 ---
@@ -46,7 +45,6 @@ The app was built to assist users in:
     - `Exit App`: Exits the app.
 - **Screenshot:**
   ![Input Screen]![image](https://github.com/user-attachments/assets/f465e220-c520-4215-ad55-86fd06ac39ec)
-![image](https://github.com/user-attachments/assets/f465e220-c520-4215-ad55-86fd06ac39ec)
 
 ---
 
@@ -60,7 +58,7 @@ The app was built to assist users in:
   - A **Back Button** to return to the Input screen.
 - **Screenshot:**
   ![Display Screen]![image](https://github.com/user-attachments/assets/89c561b7-bdad-4097-b244-579e6389a489)
-![image](https://github.com/user-attachments/assets/89c561b7-bdad-4097-b244-579e6389a489)
+
 
 
 ---
